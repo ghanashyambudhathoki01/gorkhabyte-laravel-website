@@ -118,4 +118,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 **Ghanashyam Budhathoki**  
 *Professional Full Stack & Mobile Application Developer*
 
-[LinkedIn](https://np.linkedin.com/in/ghanashyam-budhathoki-3a7014381) • [GitHub](https://github.com/ghanashyambudhathoki01) •
+[LinkedIn](https://np.linkedin.com/in/ghanashyam-budhathoki-3a7014381) • [GitHub](https://github.com/ghanashyambudhathoki01) 
