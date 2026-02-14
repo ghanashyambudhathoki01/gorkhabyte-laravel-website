@@ -113,3 +113,9 @@ Contributions are what make the open-source community such an amazing place to l
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
+## 👨‍💻 Developed By
+
+**Ghanashyam Budhathoki**  
+*Professional Full Stack & Mobile Application Developer*
+
+[LinkedIn](https://np.linkedin.com/in/ghanashyam-budhathoki-3a7014381) • [GitHub](https://github.com/ghanashyambudhathoki01) • [Portfolio](https://ghanashyambudhathoki.com.np)
