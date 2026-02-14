@@ -88,7 +88,7 @@ Follow these steps to set up Gorkhabyte Academy on your local machine:
 
 ## 🎨 Design Philosophy
 
-Gorkhabyte Academy follows a **Minimalist & Elegant** design philosophy. We prioritize:
+Gorkhabyte Academy follows a **Minimalist & Elegant** design philosophy. I prioritize:
 - **Clarity**: Uncluttered layouts that guide the user's attention.
 - **Performance**: Lightweight frontend with snappy interactions.
 - **Aesthetics**: A professional color palette and premium typography to establish trust.
