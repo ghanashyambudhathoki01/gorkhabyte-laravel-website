@@ -65,13 +65,12 @@ Follow these steps to set up Gorkhabyte Academy on your local machine:
 
 3. **Environment setup:**
    ```bash
-   cp .env.example .env
+   copy the code  .env.example and create  .env file and type command 
    php artisan key:generate
    ```
 
 4. **Database migration & seeding:**
    ```bash
-   touch database/database.sqlite # If using SQLite
    php artisan migrate
    ```
 
