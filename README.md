@@ -65,13 +65,12 @@ Follow these steps to set up Gorkhabyte Academy on your local machine:
 
 3. **Environment setup:**
    ```bash
-   cp .env.example .env
+   copy the code  .env.example and create  .env file and type command 
    php artisan key:generate
    ```
 
 4. **Database migration & seeding:**
    ```bash
-   touch database/database.sqlite # If using SQLite
    php artisan migrate
    ```
 
@@ -89,7 +88,7 @@ Follow these steps to set up Gorkhabyte Academy on your local machine:
 
 ## 🎨 Design Philosophy
 
-Gorkhabyte Academy follows a **Minimalist & Elegant** design philosophy. We prioritize:
+Gorkhabyte Academy follows a **Minimalist & Elegant** design philosophy. I prioritize:
 - **Clarity**: Uncluttered layouts that guide the user's attention.
 - **Performance**: Lightweight frontend with snappy interactions.
 - **Aesthetics**: A professional color palette and premium typography to establish trust.
@@ -98,13 +97,14 @@ Gorkhabyte Academy follows a **Minimalist & Elegant** design philosophy. We prio
 
 ## 🤝 Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are always welcome.  Any contributions you make for this project   **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+6. Star the repository
 
 ---
 
@@ -113,7 +113,9 @@ Contributions are what make the open-source community such an amazing place to l
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
+## 👨‍💻 Developed By
 
-<p align="center">
-  Built with ❤️ by Gorkhabyte Team
-</p>
+**Ghanashyam Budhathoki**  
+*Professional Full Stack & Mobile Application Developer*
+
+[LinkedIn](https://np.linkedin.com/in/ghanashyam-budhathoki-3a7014381) • [GitHub](https://github.com/ghanashyambudhathoki01) 
