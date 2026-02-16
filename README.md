@@ -2,8 +2,6 @@
 
 Gorkhabyte Academy is a comprehensive, modern Learning Management System (LMS) and professional services website built with Laravel. It features a stunning public site, a powerful admin dashboard, and a dedicated student portal for accessing course content and recorded sessions.
 
-![Gorkhabyte Banner](https://raw.githubusercontent.com/ghanashyambudhathoki01/gorkhabyte-laravel-website/main/public/logo-placeholder.png)
-
 ## 🌟 Key Features
 
 ### 🎓 Student Portal
