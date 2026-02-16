@@ -93,4 +93,4 @@ Gorkhabyte focuses on **Rich Aesthetics** and **Visual Excellence**:
 The Gorkhabyte Academy project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ---
-*Built with ❤️ byGhanashyam Budhathoki
+*Built with ❤️ byGhanashyam Budhathoki*
