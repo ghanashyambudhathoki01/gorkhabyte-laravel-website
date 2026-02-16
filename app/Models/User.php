@@ -22,7 +22,18 @@ class User extends Authenticatable
         'email',
         'password',
         'profile_image',
+        'role',
     ];
+
+    public function isAdmin(): bool
+    {
+        return strtolower($this->role ?? '') === 'admin';
+    }
+
+    public function isStudent(): bool
+    {
+        return strtolower($this->role ?? '') === 'student';
+    }
 
     /**
      * The attributes that should be hidden for serialization.

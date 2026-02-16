@@ -1,121 +1,98 @@
 # Gorkhabyte Academy 🚀
 
-[![Laravel Version](https://img.shields.io/badge/Laravel-12.x-red.svg)](https://laravel.com)
-[![PHP Version](https://img.shields.io/badge/PHP-8.2%2B-blue.svg)](https://php.net)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+Gorkhabyte Academy is a comprehensive, modern Learning Management System (LMS) and professional services website built with Laravel. It features a stunning public site, a powerful admin dashboard, and a dedicated student portal for accessing course content and recorded sessions.
 
-Gorkhabyte Academy is a modern, professional, and minimalist web platform designed for educational institutions and technology training centers. Built with **Laravel 12** and **Tailwind CSS**, it offers a seamless experience for both students and administrators.
+![Gorkhabyte Banner](https://raw.githubusercontent.com/ghanashyambudhathoki01/gorkhabyte-laravel-website/main/public/logo-placeholder.png)
 
----
+## 🌟 Key Features
 
-## ✨ Key Features
+### 🎓 Student Portal
+- **Dashboard**: personalized overview of learning progress and statistics.
+- **Video Library**: Access to all course recordings with a premium video player supporting YouTube, Vimeo, and direct links.
+- **Feedback System**: Students can provide ratings and feedback for training sessions.
+- **Profile Management**: Custom profile settings with image upload support.
 
-### 🌐 Frontend (Public Pages)
-- **Elegant Home Page**: A stunning first impression with modern aesthetics and micro-animations.
-- **Service Showcases**: Clear presentation of offered services with interactive card layouts.
-- **Training Programs**: Detailed listing of courses, including schedules, durations, and pricing.
-- **Dynamic Blog**: Stay updated with the latest news and tech insights through a fast, SEO-friendly blog.
-- **Contact System**: Fully functional contact form for student inquiries.
-- **Responsive Design**: Optimized for everything from mobile phones to high-resolution desktops.
-- **Dark Mode Support**: A beautiful, eye-friendly dark theme implemented across all pages.
+### 🛠️ Admin Dashboard
+- **Comprehensive Analytics**: Real-time stats for services, blogs, trainings, and user engagement.
+- **Content Management**: Full CRUD for Blogs, Services, and Training Programs.
+- **Video Management**: easily upload and organize recorded sessions with embed support.
+- **Inquiry Handling**: Manage messages and contact requests from the public site.
+- **Feedback Moderation**: View and manage student feedback to improve course quality.
 
-### 🔐 Admin Dashboard (Backend Management)
-- **Resource Management**: Complete CRUD functionality for Blogs, Services, and Training programs.
-- **Inquiry Tracking**: Centralized inbox to manage and respond to student messages.
-- **Dashboard Analytics**: Quick statistical overview of the platform's performance.
-- **Profile Management**: Secure admin profile customization, including personal information and profile images.
-- **Modern UI**: A clean, minimalist admin interface built for efficiency.
+### 🌐 Public Website
+- **Dynamic Homepage**: Highlighting services, training programs, and latest news.
+- **Professional Services**: Showcase business and educational services offered.
+- **Academy Blog**: Full-featured blog with category and slug support.
+- **Training Programs**: Detailed course pages with curriculum information.
+- **Contact Integration**: Functional inquiry form for potential students and clients.
 
----
+## 💻 Tech Stack
 
-## 🛠️ Tech Stack
-
-- **Kernel**: [Laravel 12](https://laravel.com)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com)
-- **Frontend Logic**: [Alpine.js](https://alpinejs.dev)
-- **Asset Bundling**: [Vite](https://vitejs.dev)
-- **Database**: MySQL / SQLite
-- **Icons**: [Heroicons](https://heroicons.com)
-
----
+- **Backend**: [Laravel 12+](https://laravel.com/)
+- **Frontend**: [Tailwind CSS 4](https://tailwindcss.com/) & [Alpine.js](https://alpinejs.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Database**: MySQL / PostgreSQL
+- **Authentication**: Laravel Breeze (Customized)
+- **UI Architecture**: Blade Components & Dark/Light Mode Support
 
 ## 🚀 Getting Started
 
-Follow these steps to set up Gorkhabyte Academy on your local machine:
-
 ### Prerequisites
-- PHP >= 8.2
+
+- PHP 8.2 or higher
 - Composer
 - Node.js & NPM
-- A database (MySQL, PostgreSQL, or SQLite)
+- MySQL / MariaDB
 
-### Installation Steps
+### Installation
 
-1. **Clone the repository:**
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/Gorkhabyte.git
-   cd Gorkhabyte
+   git clone https://github.com/ghanashyambudhathoki01/gorkhabyte-laravel-website.git
+   cd gorkhabyte-laravel-website
    ```
 
-2. **Install dependencies:**
+2. **Install dependencies**
    ```bash
    composer install
    npm install
    ```
 
-3. **Environment setup:**
+3. **Environment Setup**
    ```bash
-   copy the code  .env.example and create  .env file and type command 
+   copy .env.example .env
    php artisan key:generate
    ```
+   *Configure your database settings in the `.env` file.*
 
-4. **Database migration & seeding:**
+4. **Run Migrations & Seeders**
    ```bash
-   php artisan migrate
+   php artisan migrate --seed
    ```
 
-5. **Build assets:**
+5. **Symlink Storage**
    ```bash
-   npm run build
+   php artisan storage:link
    ```
 
-6. **Serve the application:**
+6. **Start Development Server**
    ```bash
+   npm run dev
+   # In a separate terminal
    php artisan serve
    ```
 
----
-
 ## 🎨 Design Philosophy
 
-Gorkhabyte Academy follows a **Minimalist & Elegant** design philosophy. I prioritize:
-- **Clarity**: Uncluttered layouts that guide the user's attention.
-- **Performance**: Lightweight frontend with snappy interactions.
-- **Aesthetics**: A professional color palette and premium typography to establish trust.
-
----
-
-## 🤝 Contributing
-
-Contributions are always welcome.  Any contributions you make for this project   **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-6. Star the repository
-
----
+Gorkhabyte focuses on **Rich Aesthetics** and **Visual Excellence**:
+- **Glassmorphism**: Subtle blur effects and semi-transparent layers for a premium feel.
+- **Dynamic Animations**: Smooth hover transitions and micro-interactions.
+- **Dark Mode**: Fully implemented native dark mode for a better nighttime learning experience.
+- **Responsive**: A "Mobile-First" approach ensuring a seamless experience on all devices.
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+The Gorkhabyte Academy project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ---
-## 👨‍💻 Developed By
-
-**Ghanashyam Budhathoki**  
-*Professional Full Stack & Mobile Application Developer*
-
-[LinkedIn](https://np.linkedin.com/in/ghanashyam-budhathoki-3a7014381) • [GitHub](https://github.com/ghanashyambudhathoki01) 
+*Built with ❤️ by [Gorkhabyte Team](https://gorkhabyte.com)*

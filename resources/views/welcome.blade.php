@@ -39,15 +39,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 <div class="p-4 sm:p-6">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">500+</div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">50+</div>
                     <div class="text-gray-600 dark:text-gray-400 font-medium">Students Trained</div>
                 </div>
                 <div class="p-4 sm:p-6">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">15+</div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">5+</div>
                     <div class="text-gray-600 dark:text-gray-400 font-medium">Expert Instructors</div>
                 </div>
                 <div class="p-4 sm:p-6">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">20+</div>
+                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold text-indigo-600 dark:text-indigo-400 mb-2">2+</div>
                     <div class="text-gray-600 dark:text-gray-400 font-medium">Courses Offered</div>
                 </div>
                 <div class="p-4 sm:p-6">

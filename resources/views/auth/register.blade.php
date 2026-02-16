@@ -1,4 +1,4 @@
-{{-- 
+
 <x-guest-layout>
     <div class="max-w-md mx-auto">
         <!-- Header with Branding -->
@@ -196,5 +196,3 @@
         </div>
     </div>
 </x-guest-layout>
- --}}
- <h1>Try to login if still feel confusing contact to founder</h1>

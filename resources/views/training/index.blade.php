@@ -74,7 +74,9 @@
                         <!-- Content -->
                         <div class="p-8">
                             <h3 class="text-xl font-semibold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors">
-                                {{ $training->title }}
+                                <a href="{{ route('training.show', $training->slug) }}">
+                                    {{ $training->title }}
+                                </a>
                             </h3>
                             <p class="text-gray-600 text-sm leading-relaxed mb-6">
                                 {{ Str::limit($training->description, 100) }}
@@ -117,12 +119,10 @@
                                    class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-md shadow-gray-900/10">
                                     Enroll Now
                                 </a>
-                                @if(!$training->price)
-                                    <a href="{{ route('contact') }}" 
-                                       class="inline-flex items-center justify-center px-6 py-3 border border-gray-200 text-gray-700 text-sm font-medium rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-colors">
-                                        Get Quote
-                                    </a>
-                                @endif
+                                <a href="{{ route('training.show', $training->slug) }}" 
+                                   class="inline-flex items-center justify-center px-6 py-3 border border-gray-200 text-gray-700 text-sm font-medium rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-colors">
+                                    View Details
+                                </a>
                             </div>
                         </div>
                     </article>

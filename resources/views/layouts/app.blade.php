@@ -40,6 +40,21 @@
             <main>
                 {{ $slot }}
             </main>
+
+            <!-- Footer -->
+            <footer class="bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 py-6 mt-12">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-sm text-gray-500 dark:text-gray-400">
+                            &copy; {{ date('Y') }} Gorkhabyte Academy. Admin Panel.
+                        </p>
+                        <div class="flex space-x-6 mt-4 md:mt-0">
+                            <a href="{{ route('home') }}" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 transition-colors">Site Home</a>
+                            <a href="{{ route('student.dashboard') }}" class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-600 transition-colors">Student Portal</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </body>
 </html>

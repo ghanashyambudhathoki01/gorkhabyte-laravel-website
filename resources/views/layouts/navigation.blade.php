@@ -11,21 +11,41 @@
 
             <!-- Navigation Links (Center) -->
             <div class="hidden space-x-8 sm:-my-px sm:flex sm:flex-1 sm:justify-center">
-                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                    {{ __('Dashboard') }}
-                </x-nav-link>
-                <x-nav-link :href="route('admin.blogs.index')" :active="request()->routeIs('admin.blogs.*')">
-                    {{ __('Blogs') }}
-                </x-nav-link>
-                <x-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.*')">
-                    {{ __('Services') }}
-                </x-nav-link>
-                <x-nav-link :href="route('admin.trainings.index')" :active="request()->routeIs('admin.trainings.*')">
-                    {{ __('Trainings') }}
-                </x-nav-link>
-                <x-nav-link :href="route('admin.contacts.index')" :active="request()->routeIs('admin.contacts.*')">
-                    {{ __('Messages') }}
-                </x-nav-link>
+                @if(Auth::user()->isAdmin())
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.blogs.index')" :active="request()->routeIs('admin.blogs.*')">
+                        {{ __('Blogs') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.*')">
+                        {{ __('Services') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.trainings.index')" :active="request()->routeIs('admin.trainings.*')">
+                        {{ __('Trainings') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.videos.index')" :active="request()->routeIs('admin.videos.*')">
+                        {{ __('Videos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.feedback.index')" :active="request()->routeIs('admin.feedback.*')">
+                        {{ __('Feedback') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.contacts.index')" :active="request()->routeIs('admin.contacts.*')">
+                        {{ __('Messages') }}
+                    </x-nav-link>
+                @endif
+
+                @if(Auth::user()->isStudent())
+                    <x-nav-link :href="route('student.dashboard')" :active="request()->routeIs('student.dashboard')">
+                        {{ __('Student Portal') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('student.videos.index')" :active="request()->routeIs('student.videos.*')">
+                        {{ __('Recorded Videos') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('student.feedback.create')" :active="request()->routeIs('student.feedback.*')">
+                        {{ __('Submit Feedback') }}
+                    </x-nav-link>
+                @endif
             </div>
 
             <!-- Dark Mode Toggle & Settings Dropdown -->
@@ -94,21 +114,41 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('admin.blogs.index')" :active="request()->routeIs('admin.blogs.*')">
-                {{ __('Blogs') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.*')">
-                {{ __('Services') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('admin.trainings.index')" :active="request()->routeIs('admin.trainings.*')">
-                {{ __('Trainings') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('admin.contacts.index')" :active="request()->routeIs('admin.contacts.*')">
-                {{ __('Messages') }}
-            </x-responsive-nav-link>
+            @if(Auth::user()->isAdmin())
+                <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    {{ __('Dashboard') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.blogs.index')" :active="request()->routeIs('admin.blogs.*')">
+                    {{ __('Blogs') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.services.index')" :active="request()->routeIs('admin.services.*')">
+                    {{ __('Services') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.trainings.index')" :active="request()->routeIs('admin.trainings.*')">
+                    {{ __('Trainings') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.videos.index')" :active="request()->routeIs('admin.videos.*')">
+                    {{ __('Videos') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.feedback.index')" :active="request()->routeIs('admin.feedback.*')">
+                    {{ __('Feedback') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.contacts.index')" :active="request()->routeIs('admin.contacts.*')">
+                    {{ __('Messages') }}
+                </x-responsive-nav-link>
+            @endif
+
+            @if(Auth::user()->isStudent())
+                <x-responsive-nav-link :href="route('student.dashboard')" :active="request()->routeIs('student.dashboard')">
+                    {{ __('Student Portal') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('student.videos.index')" :active="request()->routeIs('student.videos.*')">
+                    {{ __('Recorded Videos') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('student.feedback.create')" :active="request()->routeIs('student.feedback.*')">
+                    {{ __('Submit Feedback') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

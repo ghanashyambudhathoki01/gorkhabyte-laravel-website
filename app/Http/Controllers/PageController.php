@@ -51,6 +51,12 @@ class PageController extends Controller
         return view('blog.show', compact('blog'));
     }
 
+    public function trainingShow($slug)
+    {
+        $training = Training::where('slug', $slug)->firstOrFail();
+        return view('training.show', compact('training'));
+    }
+
     public function storeContact(Request $request)
     {
         $validated = $request->validate([

@@ -1,0 +1,19 @@
+Route [dashboard] is checking roles but user is being redirected.
+
+Based on the users_dump.json file I created earlier:
+- Admin user: ID 10, email: ghanashyambudhathoki0@gmail.com, role: "admin"
+- Student users: IDs 6-9, all with role: "student"
+
+Current route logic in web.php (lines 22-40):
+1. Check if isAdmin() → show admin dashboard
+2. Check if isStudent() → redirect to student.dashboard
+3. Otherwise → redirect to home
+
+The user is being redirected to student portal, which means:
+- Either they're logged in as a student account (IDs 6-9)
+- Or isAdmin() is failing despite having role 'admin'
+
+Need to:
+1. Verify which account the user is currently logged in as
+2. If logged in as student, ask them to log out and log in with admin account
+3. If logged in as admin but isAdmin() failing, investigate why

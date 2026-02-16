@@ -92,7 +92,7 @@
             <div class="mt-20 pt-20 border-t border-gray-100">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="text-center">
-                        <div class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">500+</div>
+                        <div class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">50+</div>
                         <div class="text-sm text-gray-600 uppercase tracking-wide">Students Trained</div>
                     </div>
                     <div class="text-center">
@@ -100,7 +100,7 @@
                         <div class="text-sm text-gray-600 uppercase tracking-wide">Job Placement</div>
                     </div>
                     <div class="text-center">
-                        <div class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">20+</div>
+                        <div class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">5+</div>
                         <div class="text-sm text-gray-600 uppercase tracking-wide">Expert Instructors</div>
                     </div>
                     <div class="text-center">
