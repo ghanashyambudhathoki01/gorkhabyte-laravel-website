@@ -117,9 +117,9 @@
                     If you have any questions about this privacy policy or our privacy practices, please contact us:
                 </p>
                 <div class="bg-gray-50 rounded-lg p-6 space-y-2">
-                    <p class="text-gray-700"><strong>Email:</strong> info@gorkhabyte.com</p>
-                    <p class="text-gray-700"><strong>Phone:</strong> +977 9800000000</p>
-                    <p class="text-gray-700"><strong>Address:</strong> Kathmandu, Nepal</p>
+                    <p class="text-gray-700"><strong>Email:</strong>gorkhabyteacademy@gmail.com</p>
+                    <p class="text-gray-700"><strong>Phone:</strong> +977 9865438982</p>
+                    <p class="text-gray-700"><strong>Address:</strong>Dolakha Nepal,Charikot</p>
                 </div>
             </section>
 
