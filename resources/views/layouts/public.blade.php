@@ -100,6 +100,10 @@
                                 class="px-4 py-2 rounded-lg text-sm font-medium transition-all {{ request()->routeIs('contact') ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700' }}">
                                 Contact
                             </a>
+                            <a href="{{ route('support') }}"
+                                class="px-4 py-2 rounded-lg text-sm font-medium transition-all {{ request()->routeIs('support') ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700' }}">
+                                Support
+                            </a>
                         </div>
 
                         <!-- Right Actions (Portal & Dark Mode) -->
@@ -191,6 +195,10 @@
                     <a href="{{ route('contact') }}"
                         class="block px-3 py-2 rounded-lg text-base font-medium {{ request()->routeIs('contact') ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700' }}">
                         Contact
+                    </a>
+                    <a href="{{ route('support') }}"
+                        class="block px-3 py-2 rounded-lg text-base font-medium {{ request()->routeIs('support') ? 'bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700' }}">
+                        Support
                     </a>
 
                     <div class="pt-4 pb-1 border-t border-gray-100 dark:border-gray-700 space-y-2">

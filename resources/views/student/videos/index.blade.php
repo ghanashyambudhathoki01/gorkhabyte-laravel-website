@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="mb-8">
                 <h3 class="text-3xl font-bold text-gray-900">Recorded Video Library</h3>
-                <p class="text-gray-600 mt-2 text-lg">Access all your course recordings in one place.</p>
+                <p class="text-gray-600 mt-2 text-lg">Lifetime Free your course recordings in one place.</p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

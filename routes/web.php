@@ -21,6 +21,8 @@ Route::get('/training', [PageController::class, 'training'])->name('training');
 Route::get('/training/{slug}', [PageController::class, 'trainingShow'])->name('training.show');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::post('/contact', [PageController::class, 'storeContact'])->name('contact.store');
+Route::get('/support', [PageController::class, 'support'])->name('support');
+Route::post('/support', [PageController::class, 'storeSupport'])->name('support.store');
 Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 Route::get('/blog/{slug}', [PageController::class, 'blogShow'])->name('blog.show');
 Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
@@ -36,6 +38,7 @@ Route::get('/admin-dashboard', function () {
             'messages' => \App\Models\Contact::count(),
             'videos' => \App\Models\Video::count(),
             'feedback' => \App\Models\Feedback::count(),
+            'support_tickets' => \App\Models\SupportTicket::count(),
         ];
         return view('dashboard', compact('stats'));
     }
@@ -53,6 +56,7 @@ use App\Http\Controllers\Admin\TrainingController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\FeedbackController as AdminFeedbackController;
+use App\Http\Controllers\Admin\SupportController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -68,6 +72,11 @@ Route::middleware('auth')->group(function () {
         Route::get('feedback', [AdminFeedbackController::class, 'index'])->name('feedback.index');
         Route::get('feedback/{id}', [AdminFeedbackController::class, 'show'])->name('feedback.show');
         Route::delete('feedback/{id}', [AdminFeedbackController::class, 'destroy'])->name('feedback.destroy');
+
+        Route::get('support', [SupportController::class, 'index'])->name('support.index');
+        Route::get('support/{id}', [SupportController::class, 'show'])->name('support.show');
+        Route::patch('support/{id}/status', [SupportController::class, 'updateStatus'])->name('support.updateStatus');
+        Route::delete('support/{id}', [SupportController::class, 'destroy'])->name('support.destroy');
     });
 
     Route::prefix('student')->name('student.')->middleware('student')->group(function () {

@@ -64,7 +64,7 @@
                         </div>
                         <div>
                             <p class="text-sm font-medium text-gray-500">Video Library</p>
-                            <p class="text-2xl font-bold text-gray-900 border-b-2 border-emerald-200 inline-block px-1">Access All</p>
+                            <p class="text-2xl font-bold text-gray-900 border-b-2 border-emerald-200 inline-block px-1">Lifetime Free</p>
                         </div>
                     </div>
                 </div>

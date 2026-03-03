@@ -33,6 +33,9 @@
                     <x-nav-link :href="route('admin.contacts.index')" :active="request()->routeIs('admin.contacts.*')">
                         {{ __('Messages') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.support.index')" :active="request()->routeIs('admin.support.*')">
+                        {{ __('Support') }}
+                    </x-nav-link>
                 @endif
 
                 @if(Auth::user()->isStudent())
@@ -135,6 +138,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.contacts.index')" :active="request()->routeIs('admin.contacts.*')">
                     {{ __('Messages') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.support.index')" :active="request()->routeIs('admin.support.*')">
+                    {{ __('Support') }}
                 </x-responsive-nav-link>
             @endif
 

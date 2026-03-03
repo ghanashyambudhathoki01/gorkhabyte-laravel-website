@@ -84,4 +84,25 @@ class PageController extends Controller
     {
         return view('pages.terms');
     }
+
+    public function support()
+    {
+        return view('support');
+    }
+
+    public function storeSupport(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'category' => 'required|string|in:technical,billing,general,account,feedback',
+            'priority' => 'required|string|in:low,medium,high,urgent',
+            'subject' => 'required|string|max:255',
+            'message' => 'required|string',
+        ]);
+
+        \App\Models\SupportTicket::create($validated);
+
+        return back()->with('support_success', 'Your support ticket has been submitted. We\'ll get back to you within 24 hours. Thank you for reaching out!');
+    }
 }
