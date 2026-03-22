@@ -293,17 +293,7 @@
         </div>
     </div>
 
-    <!-- Team Section -->
-    <div class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 md:p-12">
-                <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Our Team</h3>
-                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center max-w-3xl mx-auto">
-                    Our team consists of experienced professionals who are passionate about teaching and mentoring. We believe in practical, hands-on learning and provide a supportive environment for our students to grow and succeed in their tech careers.
-                </p>
-            </div>
-        </div>
-    </div>
+
 
     <!-- CTA Section -->
     <div id="contact" class="bg-gradient-to-r from-indigo-600 to-purple-600 py-16 scroll-mt-20">

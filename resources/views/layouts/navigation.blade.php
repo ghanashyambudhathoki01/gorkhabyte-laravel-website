@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('admin.trainings.index')" :active="request()->routeIs('admin.trainings.*')">
                         {{ __('Trainings') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.mentors.index')" :active="request()->routeIs('admin.mentors.*')">
+                        {{ __('Members') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('admin.videos.index')" :active="request()->routeIs('admin.videos.*')">
                         {{ __('Videos') }}
                     </x-nav-link>
@@ -129,6 +132,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.trainings.index')" :active="request()->routeIs('admin.trainings.*')">
                     {{ __('Trainings') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.mentors.index')" :active="request()->routeIs('admin.mentors.*')">
+                    {{ __('Members') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.videos.index')" :active="request()->routeIs('admin.videos.*')">
                     {{ __('Videos') }}

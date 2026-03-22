@@ -108,9 +108,6 @@
 
                         <!-- Right Actions (Portal & Dark Mode) -->
                         <div class="hidden md:flex md:items-center space-x-5">
-                            @guest
-                                <a href="{{ route('login') }}" class="text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-indigo-600 transition-colors">Log in</a>
-                            @endguest
 
                             @auth
                                 <div class="flex items-center space-x-3">
@@ -226,10 +223,6 @@
                                class="block px-3 py-3 rounded-xl text-base font-bold bg-indigo-600 text-white text-center shadow-md">
                                 Student Portal
                             </a>
-                            <div class="flex justify-center pt-2">
-                                <span class="text-sm text-gray-500 mr-2">Already a member?</span>
-                                <a href="{{ route('login') }}" class="text-sm font-bold text-indigo-600 dark:text-indigo-400">Log in</a>
-                            </div>
                         @endauth
                     </div>
                 </div>
@@ -287,15 +280,7 @@
                             <li><a href="{{ route('services') }}" class="text-gray-400 hover:text-white transition-colors inline-block hover:translate-x-1 transform duration-200">Services</a></li>
                             <li><a href="{{ route('training') }}" class="text-gray-400 hover:text-white transition-colors inline-block hover:translate-x-1 transform duration-200">Training</a></li>
                             <li><a href="{{ route('blog') }}" class="text-gray-400 hover:text-white transition-colors inline-block hover:translate-x-1 transform duration-200">Blog</a></li>
-                            <li class="pt-2 border-t border-gray-800">
-                                <a href="{{ route('student.dashboard') }}" class="text-indigo-400 hover:text-indigo-300 transition-colors inline-block hover:translate-x-1 transform duration-200 font-medium">Student Portal</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('dashboard') }}" class="text-amber-400 hover:text-amber-300 transition-colors inline-block hover:translate-x-1 transform duration-200 font-medium">Admin Dashboard</a>
-                            </li>
-                            @guest
-                                <li><a href="{{ route('login') }}" class="text-gray-400 hover:text-white transition-colors inline-block hover:translate-x-1 transform duration-200">Staff Login</a></li>
-                            @endguest
+
                         </ul>
                     </div>
 

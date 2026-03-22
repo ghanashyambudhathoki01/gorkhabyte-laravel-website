@@ -57,6 +57,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\VideoController;
 use App\Http\Controllers\Admin\FeedbackController as AdminFeedbackController;
 use App\Http\Controllers\Admin\SupportController;
+use App\Http\Controllers\Admin\MentorController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -68,6 +69,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('services', ServiceController::class);
         Route::resource('trainings', TrainingController::class);
         Route::resource('videos', VideoController::class);
+        Route::resource('mentors', MentorController::class);
         Route::resource('contacts', ContactController::class)->only(['index', 'show', 'destroy']);
         Route::get('feedback', [AdminFeedbackController::class, 'index'])->name('feedback.index');
         Route::get('feedback/{id}', [AdminFeedbackController::class, 'show'])->name('feedback.show');

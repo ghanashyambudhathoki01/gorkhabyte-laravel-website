@@ -19,7 +19,8 @@ class PageController extends Controller
 
     public function about()
     {
-        return view('about');
+        $mentors = \App\Models\Mentor::all();
+        return view('about', compact('mentors'));
     }
 
     public function services()
