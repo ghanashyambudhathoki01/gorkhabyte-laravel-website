@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+
 class BlogController extends Controller
 {
     /**
@@ -34,9 +36,22 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'required|string|unique:blogs,slug|max:255',
             'content' => 'required|string',
-            'image' => 'nullable|string',
+            'image' => 'nullable|image|max:5120',
+            'image_url' => 'nullable|url|max:255',
             'category' => 'nullable|string|max:255',
+            'status' => 'required|string|in:draft,published,scheduled',
+            'meta_description' => 'nullable|string|max:255',
+            'is_featured' => 'nullable|boolean',
+            'published_at' => 'nullable|date',
         ]);
+
+        $validated['is_featured'] = $request->has('is_featured');
+
+        if ($request->hasFile('image')) {
+            $validated['image'] = $request->file('image')->store('blogs', 'public');
+        } elseif ($request->filled('image_url')) {
+            $validated['image'] = $request->image_url;
+        }
 
         Blog::create($validated);
 
@@ -68,9 +83,25 @@ class BlogController extends Controller
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:blogs,slug,' . $blog->id,
             'content' => 'required|string',
-            'image' => 'nullable|string',
+            'image' => 'nullable|image|max:5120',
+            'image_url' => 'nullable|url|max:255',
             'category' => 'nullable|string|max:255',
+            'status' => 'required|string|in:draft,published,scheduled',
+            'meta_description' => 'nullable|string|max:255',
+            'is_featured' => 'nullable|boolean',
+            'published_at' => 'nullable|date',
         ]);
+
+        $validated['is_featured'] = $request->has('is_featured');
+
+        if ($request->hasFile('image')) {
+            if ($blog->image && !filter_var($blog->image, FILTER_VALIDATE_URL)) {
+                Storage::disk('public')->delete($blog->image);
+            }
+            $validated['image'] = $request->file('image')->store('blogs', 'public');
+        } elseif ($request->filled('image_url')) {
+            $validated['image'] = $request->image_url;
+        }
 
         $blog->update($validated);
 
@@ -82,6 +113,9 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
+        if ($blog->image && !filter_var($blog->image, FILTER_VALIDATE_URL)) {
+            Storage::disk('public')->delete($blog->image);
+        }
         $blog->delete();
         return redirect()->route('admin.blogs.index')->with('success', 'Blog deleted successfully.');
     }

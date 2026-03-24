@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Training extends Model
 {
-    protected $fillable = ['title', 'slug', 'description', 'schedule', 'duration', 'price', 'image'];
+    protected $fillable = ['title', 'slug', 'description', 'syllabus', 'schedule', 'duration', 'price', 'image'];
 
     protected static function boot()
     {

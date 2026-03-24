@@ -37,6 +37,7 @@ class TrainingController extends Controller
             'duration' => 'nullable|string|max:255',
             'price' => 'nullable|numeric',
             'image' => 'nullable|image|max:2048',
+            'syllabus' => 'nullable|string',
         ]);
 
         if ($request->hasFile('image')) {
@@ -79,6 +80,7 @@ class TrainingController extends Controller
             'duration' => 'nullable|string|max:255',
             'price' => 'nullable|numeric',
             'image' => 'nullable|image|max:2048',
+            'syllabus' => 'nullable|string',
         ]);
 
         if ($request->hasFile('image')) {

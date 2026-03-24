@@ -8,14 +8,14 @@
                 <h1 class="text-4xl font-bold text-gray-900 mb-4">{{ $blog->title }}</h1>
             </div>
 
-            @if($blog->image)
-                <div class="mb-8">
-                    <img src="{{ $blog->image }}" alt="{{ $blog->title }}" class="w-full h-auto rounded-lg shadow-md">
+            @if($blog->image_url_formatted)
+                <div class="mb-8 text-center">
+                    <img src="{{ $blog->image_url_formatted }}" alt="{{ $blog->title }}" class="w-full h-auto rounded-lg shadow-md max-h-[500px] object-cover mx-auto">
                 </div>
             @endif
 
             <div class="prose max-w-none text-gray-800 text-lg leading-relaxed">
-                {!! nl2br(e($blog->content)) !!}
+                {!! $blog->content !!}
             </div>
 
             <div class="mt-12 pt-8 border-t border-gray-200">

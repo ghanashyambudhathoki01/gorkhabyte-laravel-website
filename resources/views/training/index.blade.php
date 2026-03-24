@@ -83,13 +83,11 @@
                             </p>
 
                             <!-- Meta Info -->
-                            <div class="space-y-3 mb-6">
+                            <div class="space-y-4 mb-6">
                                 @if($training->duration)
                                     <div class="flex items-center text-sm">
                                         <div class="w-8 h-8 rounded-xl bg-indigo-50 flex items-center justify-center mr-3">
-                                            <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                            </svg>
+                                            <i class="far fa-clock text-xs text-indigo-600"></i>
                                         </div>
                                         <div>
                                             <span class="text-gray-500">Duration:</span>
@@ -97,17 +95,19 @@
                                         </div>
                                     </div>
                                 @endif
-                                
-                                @if($training->schedule)
+
+                                @if($training->syllabus)
+                                    @php
+                                        $moduleCount = preg_match_all('/^(Module|Chapter|Section|Step)\s*\d*\s*:?/im', $training->syllabus);
+                                        if($moduleCount === 0) $moduleCount = 1;
+                                    @endphp
                                     <div class="flex items-center text-sm">
-                                        <div class="w-8 h-8 rounded-xl bg-indigo-50 flex items-center justify-center mr-3">
-                                            <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                            </svg>
+                                        <div class="w-8 h-8 rounded-xl bg-emerald-50 flex items-center justify-center mr-3">
+                                            <i class="fas fa-layer-group text-xs text-emerald-600"></i>
                                         </div>
                                         <div>
-                                            <span class="text-gray-500">Schedule:</span>
-                                            <span class="font-medium text-gray-900 ml-2">{{ $training->schedule }}</span>
+                                            <span class="text-gray-500">Curriculum:</span>
+                                            <span class="font-medium text-gray-900 ml-2">{{ $moduleCount }} {{ Str::plural('Module', $moduleCount) }}</span>
                                         </div>
                                     </div>
                                 @endif
@@ -115,13 +115,13 @@
 
                             <!-- Actions -->
                             <div class="flex gap-3 pt-4 border-t border-gray-100">
-                                <a href="{{ route('contact') }}" 
-                                   class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors shadow-md shadow-gray-900/10">
-                                    Enroll Now
-                                </a>
                                 <a href="{{ route('training.show', $training->slug) }}" 
-                                   class="inline-flex items-center justify-center px-6 py-3 border border-gray-200 text-gray-700 text-sm font-medium rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-colors">
+                                   class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white text-sm font-medium rounded-xl hover:bg-gray-800 transition-colors">
                                     View Details
+                                </a>
+                                <a href="{{ route('contact') }}" 
+                                   class="inline-flex items-center justify-center px-6 py-3 border border-gray-200 text-gray-700 text-sm font-medium rounded-xl hover:border-gray-300 hover:bg-gray-50 transition-colors">
+                                    Enroll
                                 </a>
                             </div>
                         </div>

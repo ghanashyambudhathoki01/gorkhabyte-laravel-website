@@ -68,7 +68,7 @@
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-                <!-- Left: Description and Details -->
+                <!-- Left: Description and Syllabus -->
                 <div class="lg:col-span-2">
                     <div class="prose prose-lg max-w-none text-gray-600">
                         @if($training->image)
@@ -82,7 +82,87 @@
                         </div>
                     </div>
 
-                    <!-- Curriculum or Features if you have them, else just more space -->
+                    <!-- Professional Curriculum Section -->
+                    @if($training->syllabus)
+                    <div class="mt-24 border-t border-gray-100 pt-20">
+                        <div class="max-w-xl mb-12">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-4 tracking-tight">Academic Curriculum</h2>
+                            <p class="text-lg text-gray-500 leading-relaxed font-medium">A structured, comprehensive path designed to transform your professional capabilities from foundation to advanced mastery.</p>
+                        </div>
+                        
+                        @php
+                            $lines = explode("\n", $training->syllabus);
+                            $modules = [];
+                            $currentModule = null;
+
+                            foreach ($lines as $line) {
+                                $line = trim($line);
+                                if (empty($line)) continue;
+
+                                if (preg_match('/^(Module|Chapter|Section|Step)\s*\d*\s*:?/i', $line) || str_ends_with($line, ':')) {
+                                    if ($currentModule) $modules[] = $currentModule;
+                                    $currentModule = ['title' => rtrim($line, ':'), 'items' => []];
+                                } elseif ($currentModule) {
+                                    $currentModule['items'][] = ltrim($line, '-*• ');
+                                } else {
+                                    $currentModule = ['title' => 'Core Essentials', 'items' => [ltrim($line, '-*• ')]];
+                                }
+                            }
+                            if ($currentModule) $modules[] = $currentModule;
+                        @endphp
+
+                        <div class="space-y-4" x-data="{ activeAccordion: 0 }">
+                            @foreach($modules as $index => $module)
+                            <div class="bg-white rounded-[1.5rem] border border-gray-200/60 overflow-hidden transition-all duration-300 hover:border-indigo-200"
+                                 :class="{ 'ring-1 ring-indigo-600/10 border-indigo-200 shadow-xl shadow-indigo-600/5': activeAccordion === {{ $index }} }">
+                                <button 
+                                    @click="activeAccordion = (activeAccordion === {{ $index }} ? null : {{ $index }})"
+                                    class="w-full flex items-center justify-between p-7 text-left focus:outline-none transition-colors"
+                                    :class="activeAccordion === {{ $index }} ? 'bg-indigo-50/30' : 'bg-white'"
+                                >
+                                    <div class="flex items-center gap-6">
+                                        <div class="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300"
+                                             :class="activeAccordion === {{ $index }} ? 'bg-indigo-600 text-white' : 'bg-indigo-50 text-indigo-600'">
+                                            <i class="fas fa-book-open text-xs"></i>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-gray-900 tracking-tight leading-snug">{{ $module['title'] }}</h3>
+                                    </div>
+                                    <div class="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-500"
+                                         :class="activeAccordion === {{ $index }} ? 'bg-indigo-600 text-white rotate-180' : 'bg-gray-50 text-gray-400'">
+                                        <i class="fas fa-chevron-down text-[10px]"></i>
+                                    </div>
+                                </button>
+                                
+                                <div x-show="activeAccordion === {{ $index }}" x-collapse x-cloak>
+                                    <div class="px-7 pb-8 pt-2 bg-indigo-50/20">
+                                        <div class="p-6 md:p-8 bg-white rounded-2xl border border-indigo-100/50 shadow-sm relative overflow-hidden">
+                                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                                                @foreach($module['items'] as $item)
+                                                <li class="flex items-center group">
+                                                    <div class="w-1.5 h-1.5 bg-indigo-200 rounded-full mr-4 group-hover:bg-indigo-600 transition-colors flex-shrink-0"></div>
+                                                    <p class="text-sm font-semibold text-gray-700 group-hover:text-indigo-600 transition-colors">{{ $item }}</p>
+                                                </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        
+                        <!-- Certification Badge -->
+                        <div class="mt-16 p-8 bg-emerald-50 rounded-[2.5rem] border border-emerald-100 flex flex-col md:flex-row items-center gap-8 shadow-sm">
+                            <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-inner border border-emerald-100 flex-shrink-0">
+                                <i class="fas fa-award text-2xl text-emerald-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-1">Professional Certification</h4>
+                                <p class="text-gray-600 font-medium">Earn a verified industry-standard digital certificate upon successful completion of the entire curriculum.</p>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                 </div>
 
                 <!-- Right: Sidebar/Info Card -->
@@ -115,32 +195,23 @@
                         </div>
 
                         <div class="mt-8 pt-8 border-t border-gray-100">
-                            <h4 class="text-sm font-semibold text-gray-900 mb-4">What's Included</h4>
-                            <ul class="space-y-3">
+                            <h4 class="text-sm font-semibold text-gray-900 mb-4 font-bold">What's Included</h4>
+                            <ul class="space-y-4">
+                                @php
+                                    $perks = [
+                                        'Free Internship Opportunity',
+                                        'Hands-on Projects',
+                                        'Verified Digital Certificate',
+                                        'Job Placement Assistance',
+                                        'Lifetime Support',
+                                    ];
+                                @endphp
+                                @foreach($perks as $perk)
                                 <li class="flex items-start text-sm text-gray-500">
-                                    <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    Expert Instruction
+                                    <i class="fas fa-check-circle text-emerald-500 mr-3 mt-1"></i>
+                                    {{ $perk }}
                                 </li>
-                                <li class="flex items-start text-sm text-gray-500">
-                                    <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    Hands-on Projects
-                                </li>
-                                <li class="flex items-start text-sm text-gray-500">
-                                    <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    Industry-Recognized Certificate
-                                </li>
-                                <li class="flex items-start text-sm text-gray-500">
-                                    <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                    </svg>
-                                    Post-Training Support
-                                </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -148,5 +219,9 @@
             </div>
         </div>
     </section>
+
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
 </main>
 </x-public-layout>

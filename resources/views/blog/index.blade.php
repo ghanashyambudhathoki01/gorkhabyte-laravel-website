@@ -6,8 +6,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @forelse($blogs as $blog)
                     <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 flex flex-col">
-                        @if($blog->image)
-                            <img src="{{ $blog->image }}" alt="{{ $blog->title }}" class="w-full h-48 object-cover">
+                        @if($blog->image_url_formatted)
+                            <img src="{{ $blog->image_url_formatted }}" alt="{{ $blog->title }}" class="w-full h-48 object-cover">
                         @else
                             <div class="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500">
                                 No Image Available
@@ -23,7 +23,7 @@
                                     {{ $blog->title }}
                                 </a>
                             </h3>
-                            <p class="text-gray-600 mb-4">{{ Str::limit($blog->content, 120) }}</p>
+                            <p class="text-gray-600 mb-4">{{ Str::limit(strip_tags($blog->content), 120) }}</p>
                             <a href="{{ route('blog.show', $blog->slug) }}" class="text-blue-600 font-semibold hover:underline">Read More &rarr;</a>
                         </div>
                     </div>

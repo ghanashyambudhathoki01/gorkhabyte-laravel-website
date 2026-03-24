@@ -117,17 +117,30 @@
                             </div>
                         </div>
 
-                        <!-- Description Section -->
+                        <!-- Description & Syllabus Section -->
                         <div class="space-y-6">
                             <div class="border-b border-gray-100 dark:border-gray-700 pb-4">
-                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Detailed Description</h3>
-                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Provide a comprehensive overview of the training program.</p>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Detailed Description & Syllabus</h3>
+                                <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Provide a comprehensive overview of the training program and its syllabus.</p>
                             </div>
 
-                            <div>
-                                <textarea name="description" id="description" rows="6" 
-                                    class="block w-full px-4 py-3 rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:border-indigo-500 focus:ring-indigo-500 transition duration-200" 
-                                    placeholder="Write about the course modules, pre-requisites, and outcomes..." required>{{ old('description', $training->description) }}</textarea>
+                            <div class="space-y-4">
+                                <div>
+                                    <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Description</label>
+                                    <textarea name="description" id="description" rows="5" 
+                                        class="block w-full px-4 py-3 rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:border-indigo-500 focus:ring-indigo-500 transition duration-200" 
+                                        placeholder="Detailed description..." required>{{ old('description', $training->description) }}</textarea>
+                                </div>
+                                
+                                <div>
+                                    <label for="syllabus" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Course Syllabus</label>
+                                    <textarea name="syllabus" id="syllabus" rows="8" 
+                                        class="block w-full px-4 py-3 rounded-xl border-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-white focus:border-indigo-500 focus:ring-indigo-500 transition duration-200" 
+                                        placeholder="Module 1: Title
+- Lesson 1
+- Lesson 2">{{ old('syllabus', $training->syllabus) }}</textarea>
+                                    <p class="mt-2 text-xs text-gray-400">Use "Module X: Title" for headers and "-" for bullets.</p>
+                                </div>
                             </div>
                         </div>
 

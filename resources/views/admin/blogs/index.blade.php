@@ -28,16 +28,39 @@
                                 <tr>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
                                     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden md:table-cell">Category</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell">Created At</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden lg:table-cell">Featured</th>
                                     <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @forelse($blogs as $blog)
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap">{{ $blog->title }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">{{ $blog->category ?? 'N/A' }}</td>
-                                        <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">{{ $blog->created_at->format('Y-m-d') }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            <div class="text-sm font-medium text-gray-900">{{ $blog->title }}</div>
+                                            <div class="text-xs text-gray-500">{{ $blog->slug }}</div>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap hidden md:table-cell">
+                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                                {{ $blog->category ?? 'N/A' }}
+                                            </span>
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap">
+                                            @if($blog->status == 'published')
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Published</span>
+                                            @elseif($blog->status == 'scheduled')
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Scheduled</span>
+                                            @else
+                                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Draft</span>
+                                            @endif
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap hidden lg:table-cell">
+                                            @if($blog->is_featured)
+                                                <span class="text-yellow-500">⭐ Yes</span>
+                                            @else
+                                                <span class="text-gray-400">No</span>
+                                            @endif
+                                        </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <a href="{{ route('admin.blogs.edit', $blog) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
                                             <form action="{{ route('admin.blogs.destroy', $blog) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure?');">
